@@ -1,0 +1,12 @@
+replicaCount: 1
+image:
+  repository: devopschallengeacr.azurecr.io/devops-challenge-app
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  type: LoadBalancer
+  port: 80
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
