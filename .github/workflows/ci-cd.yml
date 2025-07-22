@@ -16,15 +16,13 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Restore
-        run: dotnet restore
+        run: dotnet restore ./DevOpsChallengeApp/DevOpsChallengeApp.csproj
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: dotnet build ./DevOpsChallengeApp/DevOpsChallengeApp.csproj --configuration Release
 
       - name: Test
-        run: dotnet test || echo "No tests to run"
+        run: dotnet test ./DevOpsChallengeApp/DevOpsChallengeApp.csproj || echo "No tests found"
 
       - name: Docker Build
-        run: docker build -t devops-challenge-app .
-
-      # Add push to ACR and Helm deploy here
+        run: docker build -t devops-challenge-app ./DevOpsChallengeApp
